@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+<!-- 这里的值指的是默认的HDFS路径。当有多个HDFS集群同时工作时，用户如果不写集群名称，那么默				认使用哪个？在这里指定！该值来自于hdfs-site.xml中的配置。-->
+			<property>
+				<name>fs.defaultFS</name>
+				<value>hdfs://cluster1</value>
+			</property>
+			<!-- 这里的路径默认是NameNode、DataNode、JournalNode等存放数据的公共目录。用户也可以自己			单独指定这三类节点的目录。 -->
+			<property>
+				<name>hadoop.tmp.dir</name>
+				<value>/usr/local/hadoop/tmp</value>
+			</property>
+			<!-- 这里是ZooKeeper集群的地址和端口。注意，数量一定是奇数，且不少于三个节点 -->
+			<property>
+				<name>ha.zookeeper.quorum</name>
+				<value>zoe01:2181,zoe02:2181,zoe03:2181</value>
+			</property>
+
+</configuration>
